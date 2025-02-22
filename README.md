@@ -83,6 +83,7 @@ switchport mode trunk
 switchport trunk allowed vlan 10,20
 exit
 exit
+copy running-config startup-config
 ```
 
 ### SW2
@@ -156,6 +157,7 @@ switchport mode trunk
 switchport trunk allowed vlan 10,20
 exit
 exit
+copy running-config startup-config
 ```
 
 ### SW3
@@ -205,22 +207,49 @@ Group  Port-channel  Protocol    Ports
 2      Po2(SU)           PAgP   Fa0/3(P) Fa0/4(P) Fa0/5(P) Fa0/6(P) 
 ```
 
+## Etherchannel
+
+### SW3
+```
+enable
+configure terminal
+interface rangeFastEthernet0/21. 0 - 24
+channel-group 3 mode on
+exit
+interface Port-channel3
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+exit
+exit
+copy running-config startup-config
+```
+
+### SW4
+```
+enable
+configure terminal
+hostname SW4
+interface rangeFastEthernet0/21. 0 - 24
+channel-group 3 mode on
+exit
+interface Port-channel3
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+exit
+interface FastEthernet0/ 1
+switchport mode access
+switchport access vlan 10
+exit
+interface FastEthernet0/ 2
+switchport mode access
+switchport access vlan 20
+exit
+exit
+copy running-config startup-config
+```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Etherchannel_komplet](images/Etherchannel_komplet.png)
 
 
 
