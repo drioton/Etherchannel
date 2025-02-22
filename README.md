@@ -16,19 +16,19 @@ physical links into a single logical link. This increases bandwidth, provides re
 **Load Balancing** – Traffic is distributed across all active links.  
 **Faster Convergence** – Compared to Spanning Tree Protocol (STP) blocking redundant links. 
 
-### EtherChannel Protocols
-PAgP (Port Aggregation Protocol) – Cisco proprietary, automatically manages EtherChannel.  
-
-### Modes
-
+## EtherChannel Protocols
+### PAgP (Port Aggregation Protocol)  
+Cisco proprietary, automatically manages EtherChannel.   
 Auto (passive), Desirable (active)  
 Both sides must be Desirable or Auto-Desirable to form a channel.  
-LACP (Link Aggregation Control Protocol) – IEEE standard (802.3ad), works on multi-vendor networks.  
 
-## Modes
-
+### LACP (Link Aggregation Control Protocol)  
+IEEE standard (802.3ad), works on multi-vendor networks.  
 **Passive** (listens), **Active** (initiates)  
-Both sides must be Active-Active or Active-Passive to form a channel.  
+Both sides must be Active-Active or Active-Passive to form a channel. 
+
+### EtherChannel
+
 **Static** (On mode) – No negotiation, directly creates an EtherChannel.  
 Both ends must be set to On, otherwise, no link is formed.  
 
