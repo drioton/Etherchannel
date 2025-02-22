@@ -1,5 +1,7 @@
 # Etherchannel-LACP
  Create Etherchannel - LACP
+ 
+![Etherchannel](images/Etherchannel.png)
 
 ## EtherChannel Overview
 
@@ -30,10 +32,12 @@ Both sides must be Active-Active or Active-Passive to form a channel.
 **Static** (On mode) – No negotiation, directly creates an EtherChannel.  
 Both ends must be set to On, otherwise, no link is formed.  
 
-
+![Etherchannel_Table](images/Etherchannel_Table.png)
 
 # EtherChannel LACP Configuration Steps 
 
+ 
+ 
  
 Set IP addresses on PCs.  
 Configure switch interfaces and create VLAN 10 and VLAN 20.  
