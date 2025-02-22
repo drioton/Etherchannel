@@ -136,3 +136,96 @@ Group  Port-channel  Protocol    Ports
 
 1      Po1(SU)           LACP   Gig0/1(P) Gig0/2(P) 
 ```
+
+
+
+# EtherChannel PAgP 
+
+![Etherchannel_PAgP](images/Etherchannel_PAgP.png)
+
+### SW2
+
+```
+enable
+configure terminal
+interface rangeFastEthernet0/3. 0 - 6 (f0/3-6)
+channel-group 2 mode auto
+exit
+interface Port-channel2
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+exit
+exit
+```
+
+### SW3
+
+```
+enable
+configure terminal
+hostname SW3
+interface rangeFastEthernet0/3. 0 - 6 (f0/3-6)
+channel-group 2 mode desirable
+exit
+interface Port-channel2
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+exit
+interface FastEthernet0/ 1
+switchport mode access
+switchport access vlan 10
+exit
+interface FastEthernet0/ 2
+switchport mode access
+switchport access vlan 20
+exit
+exit
+```
+
+
+### Test
+
+```
+Flags:  D - down        P - in port-channel
+        I - stand-alone s - suspended
+        H - Hot-standby (LACP only)
+        R - Layer3      S - Layer2
+        U - in use      f - failed to allocate aggregator
+        u - unsuitable for bundling
+        w - waiting to be aggregated
+        d - default port
+
+
+Number of channel-groups in use: 1
+Number of aggregators:           1
+
+Group  Port-channel  Protocol    Ports
+------+-------------+-----------+----------------------------------------------
+
+2      Po2(SU)           PAgP   Fa0/3(P) Fa0/4(P) Fa0/5(P) Fa0/6(P) 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
